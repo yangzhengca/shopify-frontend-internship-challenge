@@ -1,0 +1,22 @@
+.card {
+    border-radius: 1rem;
+    margin: 10px;
+    background-color: whitesmoke;
+    /* align-items: center; */
+}
+
+.img {
+    border-radius: 1rem 1rem 0 0;
+}
+
+
+.title {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+
+.explanation {
+    padding: 10px 0;
+    font-size: 1.1rem;
+}
