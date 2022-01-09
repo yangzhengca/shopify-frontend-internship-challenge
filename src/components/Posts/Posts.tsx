@@ -12,7 +12,7 @@ import Spinner from "../Spinner/Spinner";
 const url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}&count=8`;
 
 // define state type
-interface IState {
+export interface IState {
   post: IPost[];
 }
 
@@ -58,13 +58,14 @@ const Posts = () => {
       <div className="row ms-auto">
         {posts &&
           posts.map((post) => {
-            const { title, date, explanation, url } = post;
+            const { title, date, explanation, url, media_type } = post;
             return (
               <Post
                 title={title}
                 date={date}
                 explanation={explanation}
                 url={url}
+                media_type={media_type}
                 key={post.title}
               />
             );
