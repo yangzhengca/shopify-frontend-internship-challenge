@@ -62,7 +62,7 @@ const Posts = () => {
                 explanation={explanation}
                 url={url}
                 media_type={media_type}
-                key={post.title}
+                key={post.date}
               />
             );
           })}
