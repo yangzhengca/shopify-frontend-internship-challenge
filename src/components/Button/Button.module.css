@@ -1,5 +1,13 @@
-.btn {
+.btnTrue {
     color: red;
-    flex-direction: right;
-    display: inline-block;
+    border: none;
+    background-color: whitesmoke;
+    margin: 10px 10px 10px 0;
+
+}
+
+.btnFalse {
+    border: none;
+    background-color: whitesmoke;
+    margin: 10px 10px 10px 0;
 }

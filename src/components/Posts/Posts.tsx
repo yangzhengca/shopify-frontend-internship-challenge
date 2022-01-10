@@ -44,6 +44,7 @@ const Posts = () => {
     getPosts();
   }, []);
 
+  // refresh page function
   const refreshPage = () => {
     window.location.reload();
   };

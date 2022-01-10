@@ -5,12 +5,12 @@ interface IProps {
   buttonState: boolean;
   setButtonState: React.Dispatch<React.SetStateAction<boolean>>;
   buttonData: {
-    buttonTitle1: string;
-    svgClassName1: string;
-    path1: string;
-    buttonTitle2: string;
-    svgClassName2: string;
-    path2: string;
+    buttonTitleTrue: string;
+    svgClassNameTrue: string;
+    pathTrue: string;
+    buttonTitleFalse: string;
+    svgClassNameFalse: string;
+    pathFalse: string;
   };
 }
 
@@ -28,10 +28,10 @@ const Button: React.FC<IProps> = ({
     <>
       {buttonState ? (
         <button
-          className={`btn ${styles.btn}`}
+          className={styles.btnTrue}
           data-bs-toggle="tooltip"
           data-bs-placement="top"
-          title={buttonData.buttonTitle1}
+          title={buttonData.buttonTitleTrue}
           onClick={handleClick}
         >
           <svg
@@ -39,18 +39,18 @@ const Button: React.FC<IProps> = ({
             width="24"
             height="24"
             fill="currentColor"
-            className={buttonData.svgClassName1}
+            className={buttonData.svgClassNameTrue}
             viewBox="0 0 16 16"
           >
-            <path d={buttonData.path1} />
+            <path d={buttonData.pathTrue} />
           </svg>
         </button>
       ) : (
         <button
-          className="btn"
+          className={styles.btnFalse}
           data-bs-toggle="tooltip"
           data-bs-placement="top"
-          title={buttonData.buttonTitle2}
+          title={buttonData.buttonTitleFalse}
           onClick={handleClick}
         >
           <svg
@@ -58,10 +58,10 @@ const Button: React.FC<IProps> = ({
             width="24"
             height="24"
             fill="currentColor"
-            className={buttonData.svgClassName2}
+            className={buttonData.svgClassNameFalse}
             viewBox="0 0 16 16"
           >
-            <path d={buttonData.path2} />
+            <path d={buttonData.pathFalse} />
           </svg>
         </button>
       )}
