@@ -6,25 +6,26 @@ Used React, TypeScript, BootStrap, CSS Module, and Axios.
 ## Live Demo
 [https://spaces-tagram.netlify.app](https://spaces-tagram.netlify.app)
 
-## .env in root folder
 
-REACT_APP_API_KEY = "your nasa api key"
+## How to run this app locally
 
-## Available Scripts
+First, clone this repository.
 
-In the project directory, you can run:
+### `git clone git@github.com:yangzhengca/shopify-frontend-internship-challenge.git`
+
+Then, create a .env file in the root folder, add following code, and replace "your nasa api key" with your own NASA API key. Apply a NASA API key at [https://api.nasa.gov/](https://api.nasa.gov/).
+
+### `REACT_APP_API_KEY = "your nasa api key"`
+
+
+In the project directory, to install needed packages, run:
+
+### `npm install`
+
+Then, run: 
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
