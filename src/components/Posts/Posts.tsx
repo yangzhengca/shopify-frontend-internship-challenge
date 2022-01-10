@@ -3,7 +3,6 @@ import axios from "axios";
 import Post from "../Post/Post";
 import Spinner from "../Spinner/Spinner";
 
-
 // set api call url
 const url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}&count=9`;
 
@@ -29,7 +28,7 @@ const Posts = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  // make an api call and update states when page loaded 
+  // make an api call and update states when page loaded
   useEffect(() => {
     const getPosts = async () => {
       try {
@@ -44,6 +43,10 @@ const Posts = () => {
     };
     getPosts();
   }, []);
+
+  const refreshPage = () => {
+    window.location.reload();
+  };
 
   return (
     <div className="container">
@@ -66,6 +69,13 @@ const Posts = () => {
               />
             );
           })}
+      </div>
+      <div className="d-grid col-md-4 mx-auto mt-3">
+        {posts && (
+          <button type="button" className="btn btn-light" onClick={refreshPage}>
+            See another 9 photos / videos
+          </button>
+        )}
       </div>
     </div>
   );
