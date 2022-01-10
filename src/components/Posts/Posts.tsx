@@ -70,7 +70,7 @@ const Posts = () => {
             );
           })}
       </div>
-      <div className="d-grid col-md-4 mx-auto mt-3">
+      <div className="d-grid col-md-4 mx-auto m-3">
         {posts && (
           <button type="button" className="btn btn-light" onClick={refreshPage}>
             See another 9 photos / videos
