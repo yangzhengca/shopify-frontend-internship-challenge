@@ -3,16 +3,12 @@ import axios from "axios";
 import Post from "../Post/Post";
 import Spinner from "../Spinner/Spinner";
 
-// API call examples:
-// localhost:5000/v1/apod?api_key=DEMO_KEY&date=2014-10-01&concept_tags=True
-// https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=5
-// https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2017-07-08&end_date=2017-07-10
 
 // set api call url
-const url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}&count=8`;
+const url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}&count=9`;
 
 // define state type
-export interface IState {
+interface IState {
   post: IPost[];
 }
 
@@ -21,7 +17,7 @@ export interface IPost {
   date: string;
   explanation: "string";
   hdurl?: string;
-  media_type?: "image";
+  media_type: "image";
   title: string;
   service_version?: string;
   url: string;
@@ -33,7 +29,7 @@ const Posts = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  // make an api call when page loaded, and update states
+  // make an api call and update states when page loaded 
   useEffect(() => {
     const getPosts = async () => {
       try {

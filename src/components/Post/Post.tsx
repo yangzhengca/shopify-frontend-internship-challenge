@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { IPost as IProps } from "../Posts/Posts";
-import LikeButton from "../LikeButton/LikeButton";
 import styles from "./Post.module.css";
-import ToggleButton from "../ToggleButton/ToggleButton";
+import { buttons } from "../../constants"
+import Button from "../Button/Button"
 
+// define state types
 interface IState {
   showExplanation: boolean;
+  liked:boolean;
 }
 
 const Post: React.FC<IProps> = ({
@@ -15,17 +17,18 @@ const Post: React.FC<IProps> = ({
   url,
   media_type,
 }) => {
-  const [showExplanation, setShowExplanation] =
-    useState<IState["showExplanation"]>(false);
-
+  // Define and set initial states for buttons
+  const [showExplanation, setShowExplanation] = useState<IState["showExplanation"]>(false);
+  const [liked, setLiked] = useState<IState["liked"]>(false);
+  
   return (
     <div className="col-md-6 col-xl-4 p-0">
       <div className={`card ${styles.card}`}>
-        {media_type == "image" ? (
+        {media_type === "image" ? (
           <img
             className={`card-img-top ${styles.media}`}
             src={url}
-            alt="image not found"
+            alt="not found"
           />
         ) : (
           <iframe
@@ -44,13 +47,15 @@ const Post: React.FC<IProps> = ({
           {showExplanation && (
             <p className={`card-text ${styles.explanation}`}>{explanation}</p>
           )}
+  
+          <Button buttonState={liked}
+            setButtonState={setLiked}
+            buttonData={buttons.like} />
 
-          <ToggleButton
-            showExplanation={showExplanation}
-            setShowExplanation={setShowExplanation}
-          />
-
-          <LikeButton />
+          <Button buttonState={showExplanation}
+            setButtonState={setShowExplanation}
+            buttonData={buttons.toggle}/>
+          
         </div>
       </div>
     </div>

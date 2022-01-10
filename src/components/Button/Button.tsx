@@ -1,28 +1,37 @@
 import React from "react";
-import styles from "./ToggleButton.module.css";
+import styles from "./Button.module.css";
 
 interface IProps {
-  showExplanation: boolean;
-  setShowExplanation: React.Dispatch<React.SetStateAction<boolean>>;
+  buttonState: boolean;
+  setButtonState: React.Dispatch<React.SetStateAction<boolean>>;
+  buttonData: {
+    buttonTitle1: string;
+    svgClassName1: string;
+    path1: string;
+    buttonTitle2: string;
+    svgClassName2: string;
+    path2: string;
+  };
 }
 
-const ToggleButton: React.FC<IProps> = ({
-  showExplanation,
-  setShowExplanation,
+const Button: React.FC<IProps> = ({
+  buttonState,
+  setButtonState,
+  buttonData,
 }) => {
-  
+  // handle button click function
   const handleClick = () => {
-    setShowExplanation((pre) => !pre);
+    setButtonState((pre) => !pre);
   };
 
   return (
     <>
-      {showExplanation ? (
+      {buttonState ? (
         <button
           className={`btn ${styles.btn}`}
           data-bs-toggle="tooltip"
           data-bs-placement="top"
-          title="hide explanation"
+          title={buttonData.buttonTitle1}
           onClick={handleClick}
         >
           <svg
@@ -30,10 +39,10 @@ const ToggleButton: React.FC<IProps> = ({
             width="24"
             height="24"
             fill="currentColor"
-            className="bi bi-toggle-on"
+            className={buttonData.svgClassName1}
             viewBox="0 0 16 16"
           >
-            <path d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10H5zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" />
+            <path d={buttonData.path1} />
           </svg>
         </button>
       ) : (
@@ -41,7 +50,7 @@ const ToggleButton: React.FC<IProps> = ({
           className="btn"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
-          title="show explanation"
+          title={buttonData.buttonTitle2}
           onClick={handleClick}
         >
           <svg
@@ -49,10 +58,10 @@ const ToggleButton: React.FC<IProps> = ({
             width="24"
             height="24"
             fill="currentColor"
-            className="bi bi-toggle-off"
+            className={buttonData.svgClassName2}
             viewBox="0 0 16 16"
           >
-            <path d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z" />
+            <path d={buttonData.path2} />
           </svg>
         </button>
       )}
@@ -60,4 +69,4 @@ const ToggleButton: React.FC<IProps> = ({
   );
 };
 
-export default ToggleButton;
+export default Button;
