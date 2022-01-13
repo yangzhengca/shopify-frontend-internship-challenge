@@ -7,6 +7,9 @@ Used React, TypeScript, BootStrap, CSS Module, and Axios.
 [https://spaces-tagram.netlify.app](https://spaces-tagram.netlify.app)
 
 
+## GitHub Repository
+[https://github.com/yangzhengca/shopify-frontend-internship-challenge](https://github.com/yangzhengca/shopify-frontend-internship-challenge)
+
 ## How to run this app locally
 
 First, clone this repository:
